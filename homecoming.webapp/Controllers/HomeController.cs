@@ -20,11 +20,26 @@ namespace homecoming.webapp.Controllers
             _logger = logger;
         }
 
-        public IActionResult LandingPage()
+        public async Task<IActionResult> LandingPage()
         {
-            DefaultAreas defaultAreas = new DefaultAreas();
-            return View(defaultAreas);
+            List<AccomodationViewModel> listOfAccomodationsByLocation = null;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Config.BaseUrl);
+                HttpResponseMessage httpResponse = await client.GetAsync("accomodation");
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    listOfAccomodationsByLocation = await httpResponse.Content.ReadAsAsync<List<AccomodationViewModel>>();
+                }
+                else
+                {
+                    listOfAccomodationsByLocation = null;
+                    ModelState.AddModelError(string.Empty, "Server error try after some time.");
+                }
+            }
+            return View(listOfAccomodationsByLocation);
         }
+           
         public async Task<IActionResult> AccomodationsPage(int id)
         {
            IEnumerable<AccomodationViewModel> accomodationList = null;

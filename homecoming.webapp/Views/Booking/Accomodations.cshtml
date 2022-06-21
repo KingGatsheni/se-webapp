@@ -1,1 +1,54 @@
-﻿<h1 class="text-center" style="margin-top:100px">Feature Under Development</h1>
+﻿@using homecoming.webapp.ViewModel
+@model List<homecoming.webapp.ViewModel.AccomodationViewModel>
+@{
+    string stringUrl = "https://fileblob20.blob.core.windows.net/cloud-upload";
+}
+@if (Model.Count > 0)
+{
+    <br />
+
+    <section class="" style="margin-top:40px">     
+           
+                @for (int i = 0; i < Model.Count; i++)
+                {
+    <div class="">
+        <div class="row-by-row2">
+            <div class="location-image3">
+                <img src="@stringUrl/@Model[i].CoverPhoto">
+            </div>
+            <div class="img-descript">
+                <a>
+                    <h3> @Model[i].GeoLocation.LocationName</h3>
+                </a>
+                <p>
+                    @Model[i].Description
+                </p>
+                <div class="form-group" style="left:25px;">
+                    <a asp-action="Reservation" asp-controller="Booking" asp-route-id="@Model[i].AccomodationRooms.First().RoomId">Show Prices</a>
+                </div>
+            </div>
+        </div>
+        </div>
+                }                    
+    </section>
+
+}
+else
+{
+    <div style="margin-top:100px">
+        <div class="mt-4 p-5 bg-info text-white rounded">
+            <h1>Sorry no accomodation Found</h1>
+            <p class="text-center" style="margin-top:80px; font-size:20px; font-weight:bold">No Registered Business under this Location offering services through homecoming.com</p>
+        </div>
+    </div>
+
+
+}
+
+@if (ViewBag.price > 0)
+{
+    <script type="text/javascript">
+        alert("@ViewBag.price");
+    </script>
+}
+

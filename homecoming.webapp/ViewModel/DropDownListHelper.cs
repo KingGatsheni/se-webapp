@@ -7,15 +7,15 @@ namespace homecoming.webapp.ViewModel
 {
     public class DropDownListHelper
     { 
-        private static List<BedRoomType> defaultDedRoomTypes = new List<BedRoomType>
+        private static List<string> defaultDedRoomTypes = new List<string>
         {
-                new BedRoomType {BedRoom = "Single" },
-                new BedRoomType {BedRoom ="Double" },
-                new BedRoomType {BedRoom =" Dexule"},
-                new BedRoomType {BedRoom ="Triple" },
-                new BedRoomType {BedRoom =" Twin"} ,
-                new BedRoomType {BedRoom ="Queen" },
-                new BedRoomType {BedRoom ="King"}
+                "Single" ,
+               "Double" ,
+                " Dexule",
+                "Triple" ,
+               " Twin" ,
+               "Queen" ,
+                 "King"
         };
         private static List<int> numberOfRooms = new List<int>() { 1,2,3,4,5};
 
@@ -35,7 +35,7 @@ namespace homecoming.webapp.ViewModel
             return locations;
         }
 
-        public static List<BedRoomType> ListOfBedRoomTypes { get { return defaultDedRoomTypes; } }
+        public static List<string> ListOfBedRoomTypes { get { return defaultDedRoomTypes; } }
         public static List<int> ListOfNumberOfRooms { get { return numberOfRooms; } }
         public static List<LocationViewModel> Geo { get { return  GetLocations().Result; } }
 

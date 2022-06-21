@@ -62,7 +62,7 @@
             <h4 class="text-center">Edit Room info</h4>
         </div>
         <div>
-            <table class="table table-responsive">
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <th>
@@ -107,7 +107,7 @@
                                     <a class="link-hover info-message" asp-action="AddRoom" asp-route-id="@item.AccomodationId"><i class="fa fa-plus" aria-hidden="true"></i></a> |
                                     <a class="link-hover" asp-action="EditAccomodation" asp-route-id="@item.AccomodationId"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
                                     <a class="link-hover" asp-action="ViewRoom" asp-route-id="@item.AccomodationId"><i class="fa fa-eye" aria-hidden="true"></i></a>|
-                                    <a class="link-hover" asp-action="DeleteRoom" asp-route-id="@item.AccomodationId"><i class="fa fa-trash" aria-hidden="true"></i></a> |
+                                    <i class="fa fa-trash" aria-hidden="true"></i>|
                                 </td>
                             </tr>
                         }

@@ -165,9 +165,6 @@ body {
     }
 
 
-
-
-
 .img-text {
     position: absolute;
     color: White;
@@ -175,6 +172,15 @@ body {
     padding-left: 20px;
     padding-top: 20px;
     text-align: center;
+}
+.properties-text {
+    position: absolute;
+    color: White;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    text-align: center;
+    margin-top:45px;
 }
 
 .locations-row2 {
@@ -203,6 +209,9 @@ body {
 
 .row-by-row {
     display: flex;
+}
+.row-by-row1 {
+    width: 800px;
 }
 
 /*#rowID{
@@ -253,3 +262,393 @@ body {
     font-size: 50px;
     padding-left: 80px;
 }
+.search-section{
+    padding-left:20px;
+    padding-right:20px;
+    width:10px;
+    height:140px;
+    background-color:orange;
+}
+
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/*    Login form      */
+
+.Login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+}
+
+.Login-strip {
+    padding-top: 25px;
+    width: 50%;
+}
+
+    .Login-strip h2 {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+.Register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+}
+
+.Regsiter-strip {
+    padding-top: 25px;
+    width: 80%;
+}
+
+.Register-strip h4 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+/* ----------- - ---- -*/
+
+/*  ---------- accomodations page ---------*/
+
+.accom-container {
+    display: flex;
+    position: relative;
+}
+
+.accom-sticker h3 {
+    text-align: center;
+}
+
+#date {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-by-row1 {
+    margin-top:10px;
+    width: 300px;
+    height: 300px;
+    background-color: #eca534;
+}
+
+#right {
+    background-color: #196ED5;
+    color: black;
+}
+
+.row-by-row2 {
+    display: flex;
+    padding-left: 50px;
+}
+
+.img-descript {
+    padding-left: 40px;
+    text-align: left;
+    justify-content: center;
+}
+
+    .img-descript #right {
+        text-align: right;
+    }
+
+/*-----------------------------*/
+
+a {
+    color: #2E74D0;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: whitesmoke
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.acc {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.custom-nav {
+    background-color: darkblue;
+    height: 200px
+}
+
+.link-hover {
+    transition: .4s;
+}
+
+    .link-hover:hover {
+        transition: .4s;
+        background-color: #eca534;
+    }
+
+.hide-info {
+    display: none;
+}
+
+.info-message:hover + .hide-info {
+    display: block;
+    color: #eca534;
+}
+
+.checkbox-dm {
+    width: 15px;
+    height: 15px;
+}
+
+.table-size {
+    padding: 2px,2px,2px,2px;
+    font-size: x-small
+}
+
+.full-width {
+    width: 100%
+}
+
+.normal-box {
+    width: 100px;
+}
+
+.description-box {
+    width: 180px;
+}
+
+.custom-border-shadow {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #eca534;
+}
+
+.page-layout {
+    width: 80%
+}
+
+.page-layout-position {
+    left: 120px
+}
+
+.custom-text-box {
+    height: 30px;
+    width: 65px;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.hover_effect {
+    height: 25%;
+    width: auto;
+}
+
+    .hover_effect:hover {
+        height: 100%;
+        width: auto;
+    }
+
+.box-lignment {
+    left: 350px
+}
+
+.locations-row {
+    display: flex;
+}
+
+.location-image {
+    display: flex;
+    padding: 10px;
+}
+
+    .location-image img {
+        width: 550px;
+        height: 250px;
+        border-radius: 10px;
+    }
+
+
+
+
+
+.img-text {
+    position: absolute;
+    color: White;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.locations-row2 {
+    display: flex;
+    margin-top: 0;
+}
+
+.location-image2 {
+    display: flex;
+    padding: 15px;
+}
+
+    .location-image2 img {
+        width: 350px;
+        height: 250px;
+        border-radius: 10px;
+    }
+
+.location-image img:hover {
+    border: solid 3px orange;
+}
+
+.location-image2 img:hover {
+    border: solid 3px orange;
+}
+
+.row-by-row {
+    display: flex;
+}
+
+
+
+
+
+
+.location-image3 {
+    padding: 10px;
+}
+
+    .location-image3 img {
+        width: 350px;
+        height: 200px;
+    }
+
+
+
+
+.trips-section, .pic-container {
+    padding-top: 40px;
+}
+
+.location-image3 img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.location-image3:hover img {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+}
+
+.stickers {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #D3D3D3;
+}
+
+.sticker-icon {
+    font-size: 50px;
+    padding-left: 80px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+        .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }

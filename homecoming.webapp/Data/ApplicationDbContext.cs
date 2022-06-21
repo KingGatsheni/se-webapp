@@ -14,6 +14,6 @@ namespace homecoming.webapp.Data
 
         public DbSet<RoomTypeViewModel> RoomDetails { get; set; }
         public DbSet<RoomViewModel> Rooms { get; set; }
-        public DbSet<homecoming.api.Model.RoomDetail> RoomDetail { get; set; }
+      
     }
 }

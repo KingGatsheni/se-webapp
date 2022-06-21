@@ -54,6 +54,8 @@ namespace homecoming.webapp.Controllers
                     //data
                     formdata.Headers.ContentType.MediaType = "multipart/form-data";
                     formdata.Add(new StringContent(businessObj.BusinessName),"BusinessName");
+                    formdata.Add(new StringContent(businessObj.Email), "Email");
+                    formdata.Add(new StringContent(businessObj.AspUser), "AspUser");
                     formdata.Add(new StringContent(businessObj.Tel_No),"Tel_No");
                     formdata.Add(new StringContent(businessObj.AddressLine1), "AddressLine1");
                     formdata.Add(new StringContent(businessObj.City), "City");
@@ -182,12 +184,11 @@ namespace homecoming.webapp.Controllers
         public IActionResult AddRoom()
         {
             RoomViewModel room = new RoomViewModel();
-            DropDownListHelper.ListOfBedRoomTypes.Insert(0, new BedRoomType { Id = 0, BedRoom = "----Select BedRoom----" });
+            DropDownListHelper.ListOfBedRoomTypes.Insert(0,  "----Select BedRoom----" );
             room.Description = "";
             room.Price = 0.00M;
             room.RoomDetails = new RoomTypeViewModel();
             room.RoomDetails = new RoomTypeViewModel { RoomDetailId = 1 };
-            room.RoomDetails.BedRoomTypes = new BedRoomType();
             ViewBag.bedrooms = DropDownListHelper.ListOfBedRoomTypes;
             DropDownListHelper.ListOfNumberOfRooms.Insert(0, 1);
             ViewBag.numberOfRooms = DropDownListHelper.ListOfNumberOfRooms;
@@ -236,7 +237,8 @@ namespace homecoming.webapp.Controllers
                     {
                         var insertedRoomId = response.Content.ReadAsStringAsync().Result;
                        
-                            RoomTypeViewModel type = new RoomTypeViewModel()
+                        
+                        RoomTypeViewModel type = new RoomTypeViewModel()
                             {
                                 RoomId = int.Parse(insertedRoomId),
                                 Type = roomObj.RoomDetails.BedRoomTypes.BedRoom,
@@ -247,9 +249,13 @@ namespace homecoming.webapp.Controllers
                                 Wifi = roomObj.RoomDetails.Wifi,
                                 Private_bathroom = roomObj.RoomDetails.Private_bathroom
                             };
-                            db.RoomDetails.Add(type);
-                            db.SaveChanges();
-                        return RedirectToAction("AccomodationList", "BusinessUser");
+                        var jsonSerilize = JsonConvert.SerializeObject(type);
+                        var payloadObject = new StringContent(jsonSerilize, Encoding.UTF8, "application/json");
+                        var insertResponse =  await client.PostAsync("room/roominfo", payloadObject);
+                        if (insertResponse.IsSuccessStatusCode)
+                        { 
+                            return RedirectToAction("AccomodationList", "BusinessUser");
+                        }                      
                     }
                 }
             }

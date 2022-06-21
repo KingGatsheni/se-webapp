@@ -1,0 +1,129 @@
+﻿@model homecoming.webapp.ViewModel.RoomViewModel
+
+@if (Model != null)
+{
+<section class="accom-container" style="margin-top:50px">
+    <form asp-action="Reservation">
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="row-by-row1">
+                    <div class="accom-sticker form-group">
+                        <label> Check-in</label>
+                        <input type="date" name="Check_In_Date" class="form-control" />
+                    </div>
+                    <div class="accom-sticker form-group">
+                        <label> Check-out</label>
+                        <input type="date" name="Check_Out_Date" class="form-control" />
+                    </div>
+                    <div class="accom-sticker form-group">
+                        <label> Number of rooms</label>
+                        <select style="margin-top:15px" asp-for="Helper.RoomNumber" asp-items="@(new SelectList(ViewBag.numbers))"></select>
+                    </div>
+                    <div>
+                        <input type="text" name="Price" value="@Model.Price" hidden />
+                    </div>
+                    <div>
+                        <input type="text" name="RoomId" value="@Model.RoomId" hidden />
+                    </div>
+                </div>               
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <table class="table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Bedroom Type
+                                </th>
+                                <th>
+                                    Number Of Beds
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Television
+                                </th>
+                                <th>
+                                    Aircon
+                                </th>
+                                <th>
+                                    Ensuite
+                                </th>
+                                <th>
+                                    Wifi
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    @Html.EditorFor(x => x.RoomDetails.Type, new { htmlAttributes = new { @class = "form-control description-box readonly" } })
+                                </th>
+                                <th>
+                                    @Html.EditorFor(x => x.RoomDetails.NumberOfBeds, new { htmlAttributes = new { @class = "form-control description-box" } })
+                                </th>
+                                <td>
+                                    @Html.EditorFor(x => x.RoomDetails.Description, new { htmlAttributes = new { @class = "form-control description-box" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(x => x.RoomDetails.Television, new { htmlAttributes = new { @class = "form-control check-dm" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(x => x.RoomDetails.Air_condition, new { htmlAttributes = new { @class = "form-control check-dm" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(x => x.RoomDetails.Private_bathroom, new { htmlAttributes = new { @class = "form-control check-dm" } })
+
+                                <td>
+                                    @Html.EditorFor(x => x.RoomDetails.Wifi, new { htmlAttributes = new { @class = "form-control check-dm" } })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="card" style="left:0px">
+                        <div class="card-header bg-success text-center text-white text-uppercase">
+                            @Model.Accomodation.AccomodationName
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                @Model.Description
+                            </div>
+                            <div>
+                                R @Model.Price
+                            </div>
+                            <div class="carousel slide" data-ride="carousel" data-interval="2000" style="width:540px; height:200px;left:3px">
+                                <div class="carousel-inner">
+                                    @{
+                                        foreach (var item in Model.RoomGallary)
+                                        {
+                                            <div class="carousel-item @(item == Model.RoomGallary.First() ? "active" : "")">
+                                                <img src="https://fileblob20.blob.core.windows.net/cloud-upload/@item.ImageUrl" alt="@item.ImageUrl" style="height:200px; width:540px; margin:3px;">
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (!Model.IsBooked)
+                    {
+
+                        <input style="left:50px" type="submit" value="Book Now" class="btn btn-primary" />
+                    }
+                    else
+                    {
+                        <div>
+                            Room Already Booked
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </form>
+</section>
+}

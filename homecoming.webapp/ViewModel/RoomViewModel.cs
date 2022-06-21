@@ -16,7 +16,7 @@ namespace homecoming.webapp.ViewModel
         [Required]
         public string Description { get; set; }
         public bool IsBooked { get; set; }
-
+        public CaptureDetailsHelper Helper { get; set; }
         [Required]
         [Range(0.01, Double.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
         public decimal Price { get; set; }

@@ -1,8 +1,42 @@
 ﻿@using homecoming.webapp.ViewModel
-@model homecoming.webapp.ViewModel.DefaultAreas
-@*@inject homecoming.webapp.ViewModel.DefaultAreas Area*@
+@model List<homecoming.webapp.ViewModel.AccomodationViewModel>
+@inject homecoming.webapp.ViewModel.DefaultAreas Area
+@inject homecoming.webapp.ViewModel.PropertyNumberModel Property
 @{
     ViewData["Title"] = "Home Page";
+    int counter = 0;
+    for(int i=0; i<Model.Count; i++)
+    {
+        if(Model[i].LocationId== 4)
+        {
+            counter++;
+            Property.DN = counter;
+            counter = 0;
+        }else if(Model[i].LocationId == 1)
+        {
+            counter++;
+            Property.Durban = counter;
+            counter = 0;
+        }
+        else if(Model[i].LocationId == 2)
+        {
+            counter++;
+            Property.Westville = counter;
+            counter = 0;
+        }
+        else if(Model[i].LocationId == 3)
+        {
+            counter++;
+            Property.Umhlanga = counter;
+            counter = 0;
+        }
+        else if(Model[i].LocationId == 5)
+        {
+            counter++;
+            Property.Morningside = counter;
+            counter = 0;
+        }
+    }
 
 }
 
@@ -19,41 +53,45 @@
 
 
             <div class="locations-row">
-                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Model.Morningside">
+                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Area.Morningside">
                     <div class="location-image">
                         <img src="~/img/Berea.jpg">
                         <h3 class="img-text">  Berea  </h3>
-                        @*                   <p> ----------- ENTER CODE HERE # SIHLE ------- </p>
-                        *@
+                        <p class="properties-text"> @Property.Morningside Properties </p>
+                        
                     </div>
                 </a>
-                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Model.Umhlanga">
+                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Area.Umhlanga">
                     <div class="location-image">
                         <img src="~/img/UmhlangaR.jpg">
                         <h3 class="img-text">  Umhlanga </h3>
-                        @*                   <p> ----------- ENTER CODE HERE # SIHLE ------- </p>
-                        *@
+                        <p class="properties-text"> @Property.Umhlanga Properties </p>
+                        
 
                     </div>
                 </a>
             </div>
             <div class="locations-row2">
-                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Model.DurbanNort">
+                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Area.DurbanNort">
                     <div class="location-image2">
                         <img src="~/img/durbanN.jpg">
                         <h3 class="img-text"> Durban North   </h3>
+                         <p class="properties-text"> @Property.DN Properties </p>
+                        
                     </div>
                 </a>
-                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Model.Westville">
+                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Area.Durban">
                     <div class="location-image2">
                         <img src="~/img/westville.jpg">
                         <h3 class="img-text"> Westville   </h3>
+                        <p class="properties-text"> @Property.Westville Properties </p>
                     </div>
                 </a>
-                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Model.Durban">
+                <a asp-action="Accomodations" asp-controller="Booking" asp-route-id="@Area.Durban">
                     <div class="location-image2">
                         <img src="~/img/durbanC.jpg">
                         <h3 class="img-text"> Durban Central   </h3>
+                        <p class="properties-text"> @Property.Durban Properties </p>
                     </div>
                 </a>
             </div>

@@ -1,0 +1,61 @@
+﻿@using homecoming.webapp.ViewModel
+@model homecoming.webapp.ViewModel.BookingViewModel
+
+
+
+<div class="container" style="left:160px">
+    <h4 class="text-center" style="margin-top:80px; right:50px">Booking Details</h4>
+    <h3 class="text-center" style="margin-top:40px; right:50px; color:forestgreen"> Booking Successful, Pay on Checkin </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>
+                    BookingId
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Days Booked
+                </th>
+                <th>
+                    Number Of Rooms Booked
+                </th>
+                <th>
+                    CheckIn
+                </th>
+                <th>
+                    CheckOut
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.BookingId
+                </td>
+                <td>
+                    @Model.BookingPrice
+                </td>
+                <td>
+                    @Model.NoOfDaysBooked
+                </td>
+                <td>
+                    @Model.NoOfRooms
+                </td>
+                <td>
+                    @Model.Check_In_Date
+                </td>
+                <td>
+                    @Model.Check_Out_Date
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@if(TempData["status"] != null) {
+<script>
+        alert('@Html.Raw(TempData["status"])')
+</script>
+}
